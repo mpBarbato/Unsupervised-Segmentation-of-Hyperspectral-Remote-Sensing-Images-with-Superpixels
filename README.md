@@ -32,3 +32,7 @@ Salinas --> Salinas
 SalinasA --> Salinas
 
 To start the method, select the right function to load the right dataset in the main and start the algorithm. Matlab needs to be opened from a environment with python installed due to the functionality of python that are used in the code.
+
+# Contact
+
+Email: m.barbato2@campus.unimib.it
