@@ -11,7 +11,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 from sklearn.cluster import estimate_bandwidth
 from sklearn import metrics
 
-def estimate_bandwidth_meanshift(features, perc, quantile=0.3):
+def estimate_bandwidth_meanshift(features, perc, quantile=0.5):
     print('Start estimating bandwidth -------------------------------------')
     
     bandwidth = estimate_bandwidth(features, quantile=quantile, n_samples = int(features.shape[0]*perc/100))

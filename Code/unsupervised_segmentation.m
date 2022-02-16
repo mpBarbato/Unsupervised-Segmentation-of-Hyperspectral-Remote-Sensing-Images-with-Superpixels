@@ -1,4 +1,4 @@
-function [clust_cent_im, clust_lab] = unsupervised_segmentation(image, sp_labels, sp_centers, mask, opts)
+function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(image, sp_labels, sp_centers, mask, opts)
     
 %Perform Unsupervised segmentation of the regions using the superpixels
 %
@@ -21,6 +21,7 @@ function [clust_cent_im, clust_lab] = unsupervised_segmentation(image, sp_labels
 % 
 % clust_cent_im     - Center of each cluster
 % clust_lab         - Image where each pixel in the region of the mask is labeled in the correspondent superpixel
+% image_centers     - Image where each pixel in the region of the mask corresponds to centers of its cluster
 
 
     arguments
@@ -119,20 +120,16 @@ function [clust_cent_im, clust_lab] = unsupervised_segmentation(image, sp_labels
         bandwidth = opts.bandwidth;
     end
 
-%     [sp_clustCent,sp_data2cluster,~] = MeanShiftCluster(features',bandwidth,false);
     [~,sp_data2cluster,~] = MeanShiftCluster(features',bandwidth,false);
-%     new_sp_data = sp_clustCent(:,sp_data2cluster)';
     
     % Reconstruction of the image with background =========================
     
-%    clust_cent_im = zeros([size(image,1), size(image,2), size(features, 2)]);
     clust_lab = zeros(size(mask))-1;
 
     list_index = 1;
     for j = 1:size(mask,2)
         for i = 1:size(mask,1)
             if(not(mask(i,j) == 0))
-                %clust_cent_im(i,j,:) = new_sp_data(list_index,:);
                 clust_lab(i,j) = sp_data2cluster(list_index);
 
                 list_index = list_index + 1;
@@ -153,13 +150,20 @@ function [clust_cent_im, clust_lab] = unsupervised_segmentation(image, sp_labels
             cluster_centers(i,:) = mean(image_features(cluster_indexes,:));
          end
     end
-%     new_cluster_centers = reshape(new_cluster_centers, size(cluster_centers));
+    
+    % Image reconstruction with new centers
+    image_centers = zeros([size(clust_lab,1),size(clust_lab,2),size(cluster_centers,2)]);
+    for i=1:size(image_centers,1)
+        for j=1:size(image_centers,2)
+            if(clust_lab(i,j) ~= 0)
+                image_centers(i,j,:) = cluster_centers(clust_lab(i,j),:);
+            end
+        end
+    end
     
     clust_cent_im = cluster_centers;
     clust_lab = imresize(clust_lab, original_size, 'nearest');
-    
-    %TODO ricostruire immagine
-    
+
     fprintf('Clustering end -------------------------------------------------\n');
     
 end

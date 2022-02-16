@@ -66,7 +66,7 @@ function [superpixels_label, cluster_centers] = augmented_h_slic(image, n_cluste
                 ME = MException('Variables:valuesNotGood', 'Bandwidth and quantile cannot be both None');
                 throw(ME)
             end
-            bandwidth = double(py.estimate_bandwidth_meanshift.estimate_bandwidth_meanshift(py.numpy.array(features_list), perc, opts.quantile));
+            bandwidth = double(py.python_utility.estimate_bandwidth_meanshift(py.numpy.array(features_list), perc, opts.quantile));
         else
             bandwidth = opts.bandwidth;
         end
