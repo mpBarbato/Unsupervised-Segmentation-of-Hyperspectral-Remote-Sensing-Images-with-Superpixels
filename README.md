@@ -36,5 +36,3 @@ To start the method, select the right function to load the right dataset in the 
 # Contacts
 
 Email: m.barbato2@campus.unimib.it
-
-Telephone: +39-3935558829
