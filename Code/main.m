@@ -10,7 +10,6 @@ rng(123);
 
 %% Load dataset
 
-% [dataset_images, dataset_gt, bg_value] = loadIndianPines();
 % [dataset_images, dataset_gt, bg_value] = loadPaviaCenter();
 % [dataset_images, dataset_gt, bg_value] = loadPaviaUniversity();
 [dataset_images, dataset_gt, bg_value] = loadSalinas();
