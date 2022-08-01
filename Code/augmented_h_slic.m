@@ -66,7 +66,8 @@ function [superpixels_label, cluster_centers] = augmented_h_slic(image, n_cluste
                 ME = MException('Variables:valuesNotGood', 'Bandwidth and quantile cannot be both None');
                 throw(ME)
             end
-            bandwidth = double(py.python_utility.estimate_bandwidth_meanshift(py.numpy.array(features_list), perc, opts.quantile));
+            bandwidth = double(py.estimate_bandwidth_meanshift.estimate_bandwidth_meanshift(py.numpy.array(features_list), perc, opts.quantile));
+            bandwidth
         else
             bandwidth = opts.bandwidth;
         end
@@ -259,9 +260,9 @@ function [superpixels_label, cluster_centers] = augmented_h_slic(image, n_cluste
             if(not(isempty(cluster_indexes)))
                 [aux_indexes_1, aux_indexes_2] = ind2sub(size(superpixels_label), cluster_indexes);
                 new_cluster_centers = cat(1, new_cluster_centers,...
-                    mean(cat(2,aux_image(cluster_indexes,:), [aux_indexes_1, aux_indexes_2])));
+                    mean(cat(2,aux_image(cluster_indexes,:), [aux_indexes_1, aux_indexes_2]),1));
                 new_superpixels_label(cluster_indexes) = current_lab;
-                current_lab = current_lab + 1;
+                current_lab = current_lab + 1;     
             end
         end
     end
@@ -272,7 +273,7 @@ function [superpixels_label, cluster_centers] = augmented_h_slic(image, n_cluste
     superpixels_label = imresize(superpixels_label, original_size, 'nearest');
     
     fprintf('Segmentation end -----------------------------------------------\n');
-    
+        
 end
 
 %% Auxiliar functions
