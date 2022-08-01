@@ -1,28 +1,27 @@
 function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(image, sp_labels, sp_centers, mask, opts)
     
-%Perform Unsupervised segmentation of the regions using the superpixels
-%
-% ---INPUT---
-% 
-% image             - Hyperspectral data
-% sp_labels         - Superpixel labels
-% sp_centers        - Superpixel centers
-% mask              - Mask of the regions to segment
-% 
-% ---OPTIONAL INPUT---
-% 
-% bandwidth         - Mean-shift parameter that manipulates the segmentation (Default:NaN -> value means that it will be automatically extracted)
-% quantile          - Parameter that controls the automatic extraction of the bandwidth (Default: 0.05)
-% perc_bandwidth    - Percentage of features vector to use for the bandwidth extraction (Default: NaN -> automatically computet based on the number of pixels)
-% PCA_mode          - To use PCA = true (Default: false)
-% perc_major        - Percentage of area to label the noise-pixel in the majority procedure (Default: 10)
-%
-% ---OUTPUT---
-% 
-% clust_cent_im     - Center of each cluster
-% clust_lab         - Image where each pixel in the region of the mask is labeled in the correspondent superpixel
-% image_centers     - Image where each pixel in the region of the mask corresponds to centers of its cluster
-
+    %Perform Unsupervised segmentation of the regions using the superpixels
+    %
+    % ---INPUT---
+    % 
+    % image             - Hyperspectral data
+    % sp_labels         - Superpixel labels
+    % sp_centers        - Superpixel centers
+    % mask              - Mask of the regions to segment
+    % 
+    % ---OPTIONAL INPUT---
+    % 
+    % bandwidth         - Mean-shift parameter that manipulates the segmentation (Default:NaN -> value means that it will be automatically extracted)
+    % quantile          - Parameter that controls the automatic extraction of the bandwidth (Default: 0.05)
+    % perc_bandwidth    - Percentage of features vector to use for the bandwidth extraction (Default: NaN -> automatically computet based on the number of pixels)
+    % PCA_mode          - To use PCA = true (Default: false)
+    % perc_major        - Percentage of area to label the noise-pixel in the majority procedure (Default: 10)
+    %
+    % ---OUTPUT---
+    % 
+    % clust_cent_im     - Center of each cluster
+    % clust_lab         - Image where each pixel in the region of the mask is labeled in the correspondent superpixel
+    % image_centers     - Image where each pixel in the region of the mask corresponds to centers of its cluster
 
     arguments
         image
@@ -39,9 +38,7 @@ function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(i
     % Resize Image, mask, superpixels labels
     original_size = size(image,1,2);
     min_value = min(original_size);
-    image = imresize(image,[min_value, min_value]);
-    mask = imresize(mask,[min_value, min_value], 'nearest');
-    superpixels_label = imresize(sp_labels,[min_value, min_value], 'nearest');
+    superpixels_label = sp_labels;
     
     % PCA =============================================================
     
@@ -66,6 +63,7 @@ function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(i
         image = new_im;
 
         % PCA on the centers
+        feat_centers = feat_centers(:,1:end-2);
         [coeff,~,~,~,explained,~] = pca(feat_centers);
         Itransformed = feat_centers*coeff;
 
@@ -116,6 +114,7 @@ function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(i
             throw(ME)
         end
         bandwidth = double(py.python_utility.estimate_bandwidth_meanshift(py.numpy.array(features), perc_bandwidth, opts.quantile));
+        bandwidth
     else
         bandwidth = opts.bandwidth;
     end
@@ -136,9 +135,9 @@ function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(i
             end
         end
     end
-    
+
     % Major voting ========================================================
-    
+
     clust_lab = major_voting_cluster_eliminate(clust_lab, opts.perc_major);
 
     % New centers
@@ -161,8 +160,8 @@ function [clust_cent_im, clust_lab, image_centers] = unsupervised_segmentation(i
         end
     end
     
+%     clust_lab = imresize(clust_lab, original_size, 'nearest');
     clust_cent_im = cluster_centers;
-    clust_lab = imresize(clust_lab, original_size, 'nearest');
 
     fprintf('Clustering end -------------------------------------------------\n');
     
