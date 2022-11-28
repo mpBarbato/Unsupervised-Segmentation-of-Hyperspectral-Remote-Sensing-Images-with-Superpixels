@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Unsupervised-Segmentation-of-Hyperspectral-Remote-Sensing-Images-with-Superpixels
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Mirko Paolo
+    family-names: Barbato
+    email: m.barbato2@campus.unimib.it
+    affiliation: University of Milano-Bicocca
+    orcid: 'https://orcid.org/0000-0002-3967-8957'
+  - given-names: Paolo
+    family-names: Napoletano
+    orcid: 'https://orcid.org/0000-0001-9112-0574'
+    affiliation: University of Milano-Bicocca
+    email: paolo.napoletano@unimib.it
+  - given-names: Flavio
+    family-names: Piccoli
+    email: flavio.piccoli@unimib.it
+    affiliation: University of Milano-Bicocca
+    orcid: 'https://orcid.org/0000-0001-7432-4284'
+  - given-names: Raimondo
+    family-names: Schettini
+    email: schettini@disco.unimib.it
+    affiliation: University of Milano-Bicocca
+    orcid: 'https://orcid.org/0000-0001-7461-1451'
