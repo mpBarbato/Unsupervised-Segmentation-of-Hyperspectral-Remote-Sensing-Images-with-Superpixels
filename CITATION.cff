@@ -7,7 +7,6 @@ title: >-
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
-type: software
 authors:
   - given-names: Mirko Paolo
     family-names: Barbato
@@ -29,3 +28,37 @@ authors:
     email: schettini@disco.unimib.it
     affiliation: University of Milano-Bicocca
     orcid: 'https://orcid.org/0000-0001-7461-1451'
+  date-released: 2017-12-18
+  url: https://github.com/mpBarbato/Unsupervised-Segmentation-of-Hyperspectral-Remote-Sensing-Images-with-Superpixels
+  preferred-citation:
+    type: article
+    authors:
+    - given-names: Mirko Paolo
+      family-names: Barbato
+      email: m.barbato2@campus.unimib.it
+      affiliation: University of Milano-Bicocca
+      orcid: 'https://orcid.org/0000-0002-3967-8957'
+    - given-names: Paolo
+      family-names: Napoletano
+      orcid: 'https://orcid.org/0000-0001-9112-0574'
+      affiliation: University of Milano-Bicocca
+      email: paolo.napoletano@unimib.it
+    - given-names: Flavio
+      family-names: Piccoli
+      email: flavio.piccoli@unimib.it
+      affiliation: University of Milano-Bicocca
+      orcid: 'https://orcid.org/0000-0001-7432-4284'
+    - given-names: Raimondo
+      family-names: Schettini
+      email: schettini@disco.unimib.it
+      affiliation: University of Milano-Bicocca
+      orcid: 'https://orcid.org/0000-0001-7461-1451'
+    doi: https://doi.org/10.1016/j.rsase.2022.100823
+    journal: "Remote Sensing Applications: Society and Environment"
+    title: "Unsupervised-Segmentation-of-Hyperspectral-Remote-Sensing-Images-with-Superpixels"
+    volume: 28
+    pages: 100823
+    year: 2022
+    issn: 2352-9385
+    url: https://www.sciencedirect.com/science/article/pii/S2352938522001318
+ 
