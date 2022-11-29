@@ -7,7 +7,8 @@ title: >-
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
-type: software
+type: article
+doi: https://doi.org/10.1016/j.rsase.2022.100823
 authors:
   - given-names: Mirko Paolo
     family-names: Barbato
