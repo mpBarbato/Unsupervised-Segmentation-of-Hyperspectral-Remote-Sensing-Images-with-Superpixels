@@ -1,32 +1,55 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "Lisa"
-  given-names: "Mona"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-- family-names: "Bot"
-  given-names: "Hew"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-title: "My Research Software"
+  - given-names: "Mirko Paolo"
+    family-names: "Barbato"
+    email: "m.barbato2@campus.unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0002-3967-8957"
+  - given-names: "Paolo"
+    family-names: "Napoletano"
+    orcid: "https://orcid.org/0000-0001-9112-0574"
+    affiliation: "University of Milano-Bicocca"
+    email: "paolo.napoletano@unimib.it"
+  - given-names: "Flavio"
+    family-names: "Piccoli"
+    email: "flavio.piccoli@unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0001-7432-4284"
+  - given-names: "Raimondo"
+    family-names: "Schettini"
+    email: "raimondo.schettini@unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0001-7461-1451"
+title: "Unsupervised-Segmentation-of-Hyperspectral-Remote-Sensing-Images-with-Superpixels"
 version: 2.0.4
-doi: 10.5281/zenodo.1234
-date-released: 2017-12-18
+doi: "https://doi.org/10.1016/j.rsase.2022.100823"
 url: "https://github.com/github/linguist"
 preferred-citation:
   type: article
   authors:
-  - family-names: "Lisa"
-    given-names: "Mona"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-  - family-names: "Bot"
-    given-names: "Hew"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-  doi: "10.0000/00000"
-  journal: "Journal Title"
-  month: 9
-  start: 1 # First page number
-  end: 10 # Last page number
-  title: "My awesome research software"
-  issue: 1
-  volume: 1
-  year: 2021
+  - given-names: "Mirko Paolo"
+    family-names: "Barbato"
+    email: "m.barbato2@campus.unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0002-3967-8957"
+  - given-names: "Paolo"
+    family-names: "Napoletano"
+    orcid: "https://orcid.org/0000-0001-9112-0574"
+    affiliation: "University of Milano-Bicocca"
+    email: "paolo.napoletano@unimib.it"
+  - given-names: "Flavio"
+    family-names: "Piccoli"
+    email: "flavio.piccoli@unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0001-7432-4284"
+  - given-names: "Raimondo"
+    family-names: "Schettini"
+    email: "raimondo.schettini@unimib.it"
+    affiliation: "University of Milano-Bicocca"
+    orcid: "https://orcid.org/0000-0001-7461-1451"
+  doi: "https://doi.org/10.1016/j.rsase.2022.100823"
+  journal: "Remote Sensing Applications: Society and Environment"
+  title: "Unsupervised-Segmentation-of-Hyperspectral-Remote-Sensing-Images-with-Superpixels"
+  volume: 28
+  year: 2022
