@@ -36,3 +36,18 @@ To start the method, select the right function to load the right dataset in the 
 # Contacts
 
 Email: m.barbato2@campus.unimib.it
+
+# Citation
+```text
+@article{BARBATO2022100823,
+title = {Unsupervised segmentation of hyperspectral remote sensing images with superpixels},
+journal = {Remote Sensing Applications: Society and Environment},
+volume = {28},
+pages = {100823},
+year = {2022},
+issn = {2352-9385},
+doi = {https://doi.org/10.1016/j.rsase.2022.100823},
+url = {https://www.sciencedirect.com/science/article/pii/S2352938522001318},
+author = {Mirko Paolo Barbato and Paolo Napoletano and Flavio Piccoli and Raimondo Schettini}
+}
+```
